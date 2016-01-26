@@ -45,6 +45,7 @@
     <Compile Include="CleanEntityBase.cs" />
     <Compile Include="Common\DateTimeKindAttribute.cs" />
     <Compile Include="EntityBase.cs" />
+    <Compile Include="IdentityManagement\Member.cs" />
     <Compile Include="IObjectState.cs" />
     <Compile Include="ObjectState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

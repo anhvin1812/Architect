@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Architect.Data.EntityFramework.Mapping;
+using Architect.Entities.Common;
 
 namespace Architect.Data.EntityFramework
 {
@@ -21,6 +23,34 @@ namespace Architect.Data.EntityFramework
             // Currently only processes CleanEntityBase entities. All EntityBase entities remain unchanged.
             // http://stackoverflow.com/questions/4648540/entity-framework-datetime-and-utc
             ((IObjectContextAdapter)this).ObjectContext.ObjectMaterialized += (sender, e) => DateTimeKindAttribute.Apply(e.Entity);
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            IdentityManagementMap.Configure(modelBuilder);
+
+        }
+
+        private bool disposed = false;
+
+        protected override void Dispose(bool isDisposing)
+        {
+            if (!this.disposed)
+            {
+                if (isDisposing)
+                {
+                    
+                }
+                disposed = true;
+            }
+            base.Dispose(isDisposing);
         }
     }
 }

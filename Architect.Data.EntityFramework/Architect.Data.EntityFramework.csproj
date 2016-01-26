@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContextBase.cs" />
+    <Compile Include="EntityFrameworkAutoFacModule.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="IMkDataContext.cs" />
+    <Compile Include="Mapping\IdentityManagementMap.cs" />
     <Compile Include="MkDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateHelper.cs" />
